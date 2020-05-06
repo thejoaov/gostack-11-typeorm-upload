@@ -1,0 +1,32 @@
+version: '3'
+
+services:
+  postgres:
+    container_name: gostack_desafio06_tests
+    image: postgres:alpine
+    ports:
+      - '5432:5432'
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=docker
+      - POSTGRES_DB=gostack_desafio06_tests
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+  # redis:
+  #   container_name: gobarber-redis
+  #   image: redis:alpine
+  #   ports:
+  #     - "6379:6379"
+  # mongo:
+  #   container_name: gobarber-mongo
+  #   image: mongo
+  #   ports:
+  #     - "27017:27017"
+  # mailhog:
+  #   container_name: gobarber-mailhog
+  #   image: mailhog/mailhog
+  #   ports:
+  #     - "8025:8025"
+  #     - "1025:1025"
+volumes:
+  postgres_data:
